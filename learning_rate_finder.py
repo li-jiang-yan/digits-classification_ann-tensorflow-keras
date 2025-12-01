@@ -1,5 +1,4 @@
 from sklearn import datasets
-from sklearn.model_selection import train_test_split
 from tensorflow.keras import Input, Model
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
@@ -45,4 +44,5 @@ for lr in learning_rates:
 plt.plot(learning_rates, accuracies, "-x")
 plt.xlabel("Learning rate")
 plt.ylabel("Accuracy")
+plt.title("Model accuracy after 30 epochs vs learning rate")
 plt.show()
