@@ -44,3 +44,6 @@ plt.show()
 
 # Get the model classification metrics (will only show after the confusion matrix display window is closed)
 print(classification_report(b_test, b_pred))
+
+# Save the model for use later
+model.save("model.keras")
