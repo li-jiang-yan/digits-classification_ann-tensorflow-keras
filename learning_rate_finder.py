@@ -1,11 +1,13 @@
 from sklearn import datasets
+from tensorflow.random import set_seed
 from tensorflow.keras import Input, Model
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical, set_random_seed
 import numpy as np
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
+import random
 
 # Load dataset
 digits = datasets.load_digits()
@@ -15,10 +17,14 @@ num_classes = len(digits.target_names)
 num_features = len(digits.feature_names)
 
 # Plot accuracy vs learning rate for 30 epochs
-learning_rates = np.linspace(1e-8, 0.03, 50)
+learning_rates = np.linspace(1e-8, 0.07, 50)
 accuracies = []
 
 for lr in learning_rates:
+    set_seed(0)
+    random.seed(0)
+    np.random.seed(0)
+    set_random_seed(0)
     # Compile model
     num_neurons = num_features
     x = Input(shape=(num_features,))
