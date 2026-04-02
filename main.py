@@ -46,4 +46,5 @@ plt.show()
 print(classification_report(b_test, b_pred))
 
 # Save the model for use later
-model.save("model.keras")
+import tensorflowjs as tfjs
+tfjs.converters.save_keras_model(model, "tfjs_target_dir")
